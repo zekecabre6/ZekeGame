@@ -11,3 +11,59 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+/* Cambios específicos para dispositivos móviles */
+@media (max-width: 600px) {
+  .game-container {
+    display: block;
+    height: 100%;
+  }
+
+  /* Ajustes de las zonas táctiles en pantallas pequeñas */
+  .touch-zone {
+    width: 33.33%;
+    height: 100%;
+  }
+
+  .left-zone, .center-zone, .right-zone {
+    display: inline-block;
+    width: 33.33%;
+  }
+
+  /* Ajustar el tamaño del jugador */
+  .player {
+    width: 40px;
+    height: 40px;
+  }
+
+  /* Eliminar bordes de las zonas */
+  .left-zone, .center-zone, .right-zone {
+    background-color: transparent; /* Opcional: para no mostrar el color de fondo */
+  }
+
+  /* Opción de botón de salto y movimiento para móvil */
+  .jump-btn, .move-left-btn, .move-right-btn {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    padding: 15px;
+    border-radius: 50%;
+    font-size: 20px;
+    border: none;
+  }
+
+  .jump-btn {
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .move-left-btn {
+    bottom: 10px;
+    left: 5%;
+  }
+
+  .move-right-btn {
+    bottom: 10px;
+    right: 5%;
+  }
+}
