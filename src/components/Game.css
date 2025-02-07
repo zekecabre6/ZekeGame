@@ -25,6 +25,9 @@ body {
   
   /* Estilos para móviles */
   @media (max-width: 600px) {
+    body{
+        max-width: 100vw;
+    }
     /* Asegura que el contenedor del juego ocupe toda la pantalla */
     .game-container {
       width: 100vw; /* Asegura que el contenedor ocupe el 100% del ancho */
