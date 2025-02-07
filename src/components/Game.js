@@ -141,14 +141,24 @@ const Game = () => {
     const touchX = event.touches[0].clientX;
     const screenWidth = window.innerWidth;
 
-    // Dividir la pantalla en dos mitades
-    const halfScreenWidth = screenWidth / 2;
+    // Dividir la pantalla en tres zonas: izquierda, centro y derecha
+    const thirdScreenWidth = screenWidth / 3;
+    const twoThirdScreenWidth = 2 * thirdScreenWidth;
 
-    // Mover jugador a la derecha o izquierda dependiendo de la zona tocada
-    if (touchX < halfScreenWidth) {
-      setVelocity((prev) => ({ ...prev, x: -5 })); // Mover izquierda
-    } else {
-      setVelocity((prev) => ({ ...prev, x: 5 })); // Mover derecha
+    // Zona de la izquierda: Mover a la izquierda
+    if (touchX < thirdScreenWidth) {
+      setVelocity((prev) => ({ ...prev, x: -5 }));
+    }
+    // Zona del centro: Saltar
+    else if (touchX >= thirdScreenWidth && touchX <= twoThirdScreenWidth) {
+      if (!isJumping) {
+        setIsJumping(true);
+        setVelocity((prev) => ({ ...prev, y: -10 }));
+      }
+    }
+    // Zona de la derecha: Mover a la derecha
+    else if (touchX > twoThirdScreenWidth) {
+      setVelocity((prev) => ({ ...prev, x: 5 }));
     }
   };
 
