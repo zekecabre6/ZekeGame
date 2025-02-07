@@ -11,22 +11,32 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-/* Cambios específicos para dispositivos móviles */
+/* Estilos específicos para móviles */
 @media (max-width: 600px) {
   .game-container {
     display: block;
     height: 100%;
   }
 
-  /* Ajustes de las zonas táctiles en pantallas pequeñas */
+  /* Zonas táctiles ocupan toda la pantalla */
   .touch-zone {
-    width: 33.33%;
-    height: 100%;
+    width: 100%;
+    height: 50%;
   }
 
-  .left-zone, .center-zone, .right-zone {
-    display: inline-block;
-    width: 33.33%;
+  .left-zone {
+    top: 0;
+    background-color: rgba(255, 0, 0, 0.3);
+  }
+
+  .center-zone {
+    top: 50%;
+    background-color: rgba(0, 255, 0, 0.3);
+  }
+
+  .right-zone {
+    top: 50%;
+    background-color: rgba(0, 0, 255, 0.3);
   }
 
   /* Ajustar el tamaño del jugador */
@@ -35,35 +45,8 @@ code {
     height: 40px;
   }
 
-  /* Eliminar bordes de las zonas */
+  /* Mejor visualización de las zonas */
   .left-zone, .center-zone, .right-zone {
-    background-color: transparent; /* Opcional: para no mostrar el color de fondo */
-  }
-
-  /* Opción de botón de salto y movimiento para móvil */
-  .jump-btn, .move-left-btn, .move-right-btn {
-    position: absolute;
-    background-color: rgba(0, 0, 0, 0.6);
-    color: white;
-    padding: 15px;
-    border-radius: 50%;
-    font-size: 20px;
-    border: none;
-  }
-
-  .jump-btn {
-    bottom: 30px;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-
-  .move-left-btn {
-    bottom: 10px;
-    left: 5%;
-  }
-
-  .move-right-btn {
-    bottom: 10px;
-    right: 5%;
+    border: 1px solid #fff;
   }
 }
