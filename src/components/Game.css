@@ -26,7 +26,7 @@ body {
 /* Media query para dispositivos móviles */
 @media (max-width: 600px) {
     /* Ajusta el body para que ocupe toda la pantalla */
-    body {
+    * {
       width: 100vw;
       height: 100vh;
       margin: 0;
