@@ -1,0 +1,18 @@
+body{
+    
+    overflow: hidden;
+}.game-container{
+    width:300vw;
+    height: 95vh;
+    border:2px solid #000;
+    position: relative;
+    overflow: hidden;
+    background-color: #87ceeb;
+}
+/* Game.css */
+.last-platform {
+    background-color: gold; /* Color dorado para la meta */
+    border: 2px solid black; /* Borde negro */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Sombra para resaltar */
+  }
+  
