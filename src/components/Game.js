@@ -118,53 +118,58 @@ const Game = () => {
 
   };
   useEffect(() => {
-    const handleKeyDown = (event) => {
-      if (event.key === 'ArrowRight') {
-        setVelocity((prev) => ({ ...prev, x: 5 }));
-      } else if (event.key === 'ArrowLeft') {
-        setVelocity((prev) => ({ ...prev, x: -5 }));
-      } else if (event.key === ' ' && !isJumping) {
-        setIsJumping(true);
-        setVelocity((prev) => ({ ...prev, y: -10 }));
-      }
-    };
+    // Manejador de eventos para teclados (opcional)
+  const handleKeyDown = (event) => {
+    if (event.key === 'ArrowRight') {
+      setVelocity((prev) => ({ ...prev, x: 5 }));
+    } else if (event.key === 'ArrowLeft') {
+      setVelocity((prev) => ({ ...prev, x: -5 }));
+    } else if (event.key === ' ' && !isJumping) {
+      setIsJumping(true);
+      setVelocity((prev) => ({ ...prev, y: -10 }));
+    }
+  };
 
-    const handleKeyUp = (event) => {
-      if (event.key === 'ArrowRight' || event.key === 'ArrowLeft') {
-        setVelocity((prev) => ({ ...prev, x: 0 }));
-      }
-    };
-    // Agregar eventos táctiles (móviles)
-    const handleTouchStart = (event) => {
-      // Detectar la zona del toque
-      const touchX = event.touches[0].clientX;
-      const screenWidth = window.innerWidth;
+  const handleKeyUp = (event) => {
+    if (event.key === 'ArrowRight' || event.key === 'ArrowLeft') {
+      setVelocity((prev) => ({ ...prev, x: 0 }));
+    }
+  };
 
-      // Mover jugador a la derecha o izquierda
-      if (touchX < screenWidth / 2) {
-        setVelocity((prev) => ({ ...prev, x: -5 })); // Mover izquierda
-      } else {
-        setVelocity((prev) => ({ ...prev, x: 5 })); // Mover derecha
-      }
-    };
+  // Agregar eventos táctiles (móviles)
+  const handleTouchStart = (event) => {
+    const touchX = event.touches[0].clientX;
+    const screenWidth = window.innerWidth;
 
-    const handleTouchEnd = () => {
-      setVelocity((prev) => ({ ...prev, x: 0 })); // Detener movimiento al soltar
-    };
+    // Dividir la pantalla en dos mitades
+    const halfScreenWidth = screenWidth / 2;
 
-    // Asignar los eventos táctiles
-    window.addEventListener('touchstart', handleTouchStart);
-    window.addEventListener('touchend', handleTouchEnd);
+    // Mover jugador a la derecha o izquierda dependiendo de la zona tocada
+    if (touchX < halfScreenWidth) {
+      setVelocity((prev) => ({ ...prev, x: -5 })); // Mover izquierda
+    } else {
+      setVelocity((prev) => ({ ...prev, x: 5 })); // Mover derecha
+    }
+  };
 
-    window.addEventListener('keydown', handleKeyDown);
-    window.addEventListener('keyup', handleKeyUp);
+  const handleTouchEnd = () => {
+    setVelocity((prev) => ({ ...prev, x: 0 })); // Detener movimiento al soltar
+  };
 
-    return () => {
-      window.removeEventListener('touchstart', handleTouchStart);
+  // Asignar los eventos táctiles
+  window.addEventListener('touchstart', handleTouchStart);
+  window.addEventListener('touchend', handleTouchEnd);
+
+  // Asignar eventos de teclado (si es necesario)
+  window.addEventListener('keydown', handleKeyDown);
+  window.addEventListener('keyup', handleKeyUp);
+
+  return () => {
+    window.removeEventListener('touchstart', handleTouchStart);
     window.removeEventListener('touchend', handleTouchEnd);
     window.removeEventListener('keydown', handleKeyDown);
     window.removeEventListener('keyup', handleKeyUp);
-    };
+  };
   }, [isJumping, gameOver]);
 
   // Lógica de actualización del juego
