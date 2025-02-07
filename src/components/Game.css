@@ -1,7 +1,5 @@
 /* Estilos generales */
 body {
-    width: 100vw;
-    height: 100vh;
     overflow: hidden;
     margin: 0; /* Elimina los márgenes predeterminados */
   }
@@ -25,9 +23,11 @@ body {
   
   /* Estilos para móviles */
   @media (max-width: 600px) {
+    body {
+        overflow: hidden;}
     /* Asegura que el contenedor del juego ocupe toda la pantalla */
     .game-container {
-      width: 100vw; /* Asegura que el contenedor ocupe el 100% del ancho */
+       /* Asegura que el contenedor ocupe el 100% del ancho */
       height: 100vh; /* Asegura que el contenedor ocupe el 100% del alto */
     }
   
