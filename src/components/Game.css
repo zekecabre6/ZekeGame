@@ -25,50 +25,49 @@ body {
   
 /* Media query para dispositivos móviles */
 @media (max-width: 600px) {
-    /* Asegura que el body ocupe el 100% del ancho y alto de la pantalla */
+    /* Ajusta el body para que ocupe toda la pantalla */
     body {
       width: 100vw;
       height: 100vh;
       margin: 0;
       padding: 0;
-      overflow: hidden; /* Previene el scroll */
+      overflow: hidden; /* Evita el scroll */
     }
   
-    /* Contenedor del juego ajustado para móvil */
+    /* Ajuste del contenedor del juego para móvil */
     .game-container {
-      width: 100vw; /* El contenedor ocupa el 100% del ancho */
-      height: 100vh; /* El contenedor ocupa el 100% del alto */
+      width: 300vw; /* El contenedor ahora tiene un ancho mayor al de la pantalla */
+      height: 100vh;
       overflow: hidden;
-      transform: translateX(0); /* Evita que el contenedor se desplace fuera de la vista */
+      position: relative;
+      background-color: #87ceeb;
+      transform: translateX(0); /* Ajuste para comenzar sin desplazamiento */
     }
   
     /* Ajuste de tamaño para el jugador */
     .player {
-      width: 50px;  /* Tamaño reducido para móviles */
-      height: 50px; /* Tamaño reducido para móviles */
+      width: 50px;  /* Tamaño adecuado para móviles */
+      height: 50px; /* Tamaño adecuado para móviles */
     }
   
-    /* Ajuste de plataformas para móviles */
+    /* Ajuste de plataformas */
     .platform {
-      width: 80%; /* Las plataformas ocuparán el 80% del ancho */
-      height: 10px; /* Asegura que las plataformas sean más pequeñas en altura */
+      width: 80%; /* Las plataformas ocupan el 80% del ancho */
+      height: 10px; /* Asegura que las plataformas no sean demasiado altas */
     }
   
-    /* Estilo para las zonas táctiles */
+    /* Zonas de control táctil */
     .touch-zone {
       position: absolute;
       width: 100%;
       height: 50%; /* Ocupa la mitad inferior de la pantalla */
     }
   
-    /* Zonas de control táctil */
-    .left-zone,
-    .center-zone,
-    .right-zone {
+    /* Zonas de control específicas */
+    .left-zone, .center-zone, .right-zone {
       position: absolute;
-      width: 50%;  /* Cada zona ocupa la mitad de la pantalla */
+      width: 50%; /* Cada zona ocupa la mitad del ancho */
       height: 50%; /* Cada zona ocupa la mitad de la altura */
-      touch-action: none; /* Evita que los toques interfieran con la interacción */
     }
   
     .left-zone {
@@ -89,9 +88,9 @@ body {
       background-color: rgba(0, 0, 255, 0.3); /* Zona derecha */
     }
   
-    /* Asegura que las transiciones sean suaves */
+    /* Para que el contenedor del juego se mueva suavemente */
     .game-container {
-      transition: transform 0.3s ease-out; /* Para suavizar el movimiento de la cámara */
+      transition: transform 0.3s ease-out; /* Suaviza el movimiento de la cámara */
     }
   }
   
