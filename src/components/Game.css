@@ -1,12 +1,14 @@
 /* Estilos generales */
 body {
+    width: 100vw;
+    height: 100vh;
     overflow: hidden;
     margin: 0; /* Elimina los márgenes predeterminados */
   }
   
   /* Contenedor del juego */
   .game-container {
-    width: 5000px; /* Asegura que el contenedor ocupe todo el ancho de la pantalla */
+    width: 100vw; /* Asegura que el contenedor ocupe todo el ancho de la pantalla */
     height: 95vh; /* Altura del 95% de la pantalla */
     border: 2px solid #000;
     position: relative;
@@ -23,11 +25,9 @@ body {
   
   /* Estilos para móviles */
   @media (max-width: 600px) {
-    body {
-        overflow: hidden;}
     /* Asegura que el contenedor del juego ocupe toda la pantalla */
     .game-container {
-       /* Asegura que el contenedor ocupe el 100% del ancho */
+      width: 100vw; /* Asegura que el contenedor ocupe el 100% del ancho */
       height: 100vh; /* Asegura que el contenedor ocupe el 100% del alto */
     }
   
