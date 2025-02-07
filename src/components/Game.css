@@ -1,19 +1,35 @@
-body{
-    width: 100vw;
-    overflow: hidden;
-}.game-container{
-    width:300vw;
+body {
+    width: 100%;
+    margin: 0;  /* Elimina márgenes por defecto */
+    overflow: hidden; /* Desactiva el desplazamiento global */
+}
+
+.game-container {
+    width: 5000px; /* Mantén el ancho original del mapa */
     height: 100vh;
     min-height: 100vh;
-    border:2px solid #000;
+    border: 2px solid #000;
     position: relative;
-    overflow: hidden;
+    overflow-x: auto; /* Activa el desplazamiento horizontal */
+    overflow-y: hidden; /* Desactiva el desplazamiento vertical */
     background-color: #87ceeb;
 }
-/* Game.css */
+
+/* Estilo para la plataforma meta */
 .last-platform {
-    background-color: gold; /* Color dorado para la meta */
-    border: 2px solid black; /* Borde negro */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Sombra para resaltar */
-  }
-  
+    background-color: gold;
+    border: 2px solid black;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Media Query para pantallas pequeñas (móviles) */
+@media (max-width: 768px) {
+    body {
+        overflow-x: auto;  /* Permite el desplazamiento horizontal en la pantalla del móvil */
+    }
+
+    .game-container {
+        width: 5000px; /* Mantén el tamaño original del mapa */
+        height: auto;  /* Ajusta la altura de manera dinámica */
+    }
+}
